@@ -26,6 +26,10 @@ const presentation: Presentation = {
       label: "Github",
       link: "https://github.com/josers77j",
     },
+    {
+      label: "josers772@outlook.es",
+      link: "mailto:josers772@outlook.es",
+    },
   ],
 };
 

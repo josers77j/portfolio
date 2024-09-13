@@ -8,7 +8,7 @@ import React from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), robotsTxt(), React],
+  integrations: [tailwind(), sitemap(), robotsTxt(), React()],
   site: SITE_URL,
   markdown: {
     syntaxHighlight: "shiki",

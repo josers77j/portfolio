@@ -20,17 +20,12 @@ import { stackCollections } from "@/data/constants";
     <article
       class="flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12"
     >
-      {
-        presentation.profile && (
-          <Image
-            src={presentation.profile}
-            class="w-1/4 self-center rounded-full"
-            alt="Your Profile"
-            width="200"
-            height="200"
-          />
-        )
-      }
+    <iframe
+    src="../../src/utils/icons/github/github-original.svg"
+    class="w-1/4 self-center rounded-full"
+    width="200"
+    height="200"
+  />
 
       <div class="flex flex-col gap-8">
         <h1 class="text-3xl text-neutral-100">
@@ -48,7 +43,7 @@ import { stackCollections } from "@/data/constants";
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Tecnologias</h3>
+        <h3 class="text-lg text-neutral-100">Tecnologias ({stackCollections.length})</h3>
       </header>
 
       <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">

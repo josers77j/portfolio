@@ -1,6 +1,4 @@
 ---
-import formatDate from "@/utils/formatDate";
-
 type Props = {
   name: string;
   image: string;
@@ -22,8 +20,9 @@ const { name, image } = Astro.props;
   <img
     src={image}
     alt={name}
-    class={`w-20 h-20 ${
-      name === 'GitHub' || name === 'ExpressJS' ? 'filter brightness-50' : ''
-    }`}
+    class={'w-20 h-20'}
   />
+
+  <p class="text-neutral-400 text-center">{name}</p>
+
 </a>
