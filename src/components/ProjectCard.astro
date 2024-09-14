@@ -1,27 +1,39 @@
 ---
-import type { Project } from "@/data/projects";
 
-type Props = Project;
+import { projectCollections } from "@/data/constants";
 
-const { title, techs, link, isComingSoon } = Astro.props;
+type Props = {
+  title: string;
+  image: string;
+  techs: string;
+};
 
-const formatTechs = (values: string[]) =>
-  values.toString().replaceAll(",", " • ");
+const { title, image, techs } = Astro.props;
+
 ---
-
-  <a
-    class="group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border-neutral-300 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 w-full h-80 bg-white/10 backdrop-blur-lg"
-  >
+<div
+  class="group flex max-w-sm flex-col gap-2 rounded-md border-neutral-300 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 w-full h-auto bg-white/10 backdrop-blur-lg"
+>
+  <a href="https://github.com/tuusuario/tu-repositorio" target="_blank" rel="noopener noreferrer">
     <img
-      src="https://empresa.org.ar/wp-content/uploads/2019/01/gestion-de-proyectos-1.jpeg"
+      src={image}
       alt="Project 1"
-      class="w-full h-40 object-cover rounded transition-transform duration-300 group-hover:scale-105"
+      class="w-full h-auto object-cover rounded transition-transform duration-300 group-hover:scale-105"
     />
-    <div class="flex flex-col gap-2">
-      <p class="text-xl text-neutral-100 font-semibold">Project 1</p>
-      <p class="text-neutral-400">
-        Este proyecto es una aplicación web que permite gestionar tareas y recordatorios. Utiliza React y Node.js.
-      </p>
-      <p class="text-neutral-500 text-sm">Propósito: Mejora de la productividad personal.</p>
-    </div>
   </a>
+  <div class="flex flex-col gap-2">
+    <p class="text-xl text-neutral-100 font-semibold">{title}</p>
+    <p class="text-neutral-400">
+      Este proyecto es una aplicación web que permite gestionar tareas y recordatorios. Utiliza React y Node.js.
+    </p>
+    <p class="text-neutral-500 text-sm">{techs}</p>
+    <a
+    href="https://github.com/tuusuario/tu-repositorio"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mt-4 w-full flex items-center justify-center px-6 py-3 bg-gray-800 text-white font-bold rounded-lg shadow hover:bg-gray-700 transition"
+  >
+    Ver código en GitHub
+  </a>
+  </div>
+</div>

@@ -9,8 +9,7 @@ import Link from "@/components/shared/Link.astro";
 import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 
 import presentation from "@/data/presentation";
-import projects from "@/data/projects";
-import { stackCollections } from "@/data/constants";
+import { stackCollections, projectCollections } from "@/data/constants";
 
 
 ---
@@ -62,12 +61,17 @@ import { stackCollections } from "@/data/constants";
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-lg text-neutral-100">
-          Proyectos ({projects.length})
+          Proyectos ({projectCollections.length})
         </h3>
       </header>
       <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
         {
-            projects.map((project) => <ProjectCard {...project} />)
+            projectCollections.map((project) =>
+            <ProjectCard
+                title={project.title}
+                image={project.image}
+                techs={project.techs}
+             />)
         }
       </section>
     </article>
@@ -134,11 +138,6 @@ import { stackCollections } from "@/data/constants";
         <header class="flex w-full flex-row justify-between gap-2">
           <h3 class="text-lg text-neutral-100">Get in touch</h3>
         </header>
-
-        <p class="text-neutral-300">
-          Email me at <a href="mailto:tuemail@example.com" class="text-blue-400 underline">tuemail@example.com</a>
-          or follow me via my social links.
-        </p>
 
         <div>
           <!-- Aquí irían tus enlaces a redes sociales -->
