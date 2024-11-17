@@ -6,29 +6,28 @@ type Props = {
   title: string;
   image: string;
   techs: string;
+  description: string;
 };
 
-const { title, image, techs } = Astro.props;
+const { title, image, description, techs } = Astro.props;
 
 ---
 <div
   class="group flex max-w-sm flex-col gap-2 rounded-md border-neutral-300 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 w-full h-auto bg-white/10 backdrop-blur-lg"
 >
-  <a href="https://github.com/tuusuario/tu-repositorio" target="_blank" rel="noopener noreferrer">
-    <img
+  <img
       src={image}
       alt="Project 1"
       class="w-full h-auto object-cover rounded transition-transform duration-300 group-hover:scale-105"
     />
-  </a>
-  <div class="flex flex-col gap-2">
+ <div class="flex flex-col gap-2">
     <p class="text-xl text-neutral-100 font-semibold">{title}</p>
     <p class="text-neutral-400">
-      Este proyecto es una aplicación web que permite gestionar tareas y recordatorios. Utiliza React y Node.js.
+      {description}
     </p>
     <p class="text-neutral-500 text-sm">{techs}</p>
     <a
-    href="https://github.com/tuusuario/tu-repositorio"
+    href="https://github.com/josers77j/Control-inventario-php"
     target="_blank"
     rel="noopener noreferrer"
     class="mt-4 w-full flex items-center justify-center px-6 py-3 bg-gray-800 text-white font-bold rounded-lg shadow hover:bg-gray-700 transition"

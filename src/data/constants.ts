@@ -58,5 +58,10 @@ export const stackCollections = [
     "description":"Descripcion: Sistema de gestión de inventario para un instituto que imparte cursos de formación profesional. Permite llevar un control de los productos, proveedores, compras y ventas.",
     "techs":"Tecnologias: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github",
     },
+    {"title":"Sistema de Gestión de Inventario",
+      "image":"../../src/img/inventoryManagement.png",
+      "description":"Descripcion: Sistema .",
+      "techs":"Tecnologias: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github",
+      },
 
   ]
