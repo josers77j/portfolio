@@ -16,7 +16,7 @@ const presentation: Presentation = {
   title: "Hi, I’m Ruben 👋",
   // profile: "/profile.webp",
   description:
-    "Mi descripcion mi chavo, soy un chavo que le gusta la programacion y el desarrollo web, me gusta aprender cosas nuevas y me gusta la musica, el futbol y los videojuegos.",
+    "Backend Developer specialized in Node.js, NestJS and PostgreSQL. I build scalable, well-structured APIs and systems using modern tools like Docker, Prisma and Angular. Currently focused on strengthening my frontend skills while building complete, real-world projects.",
   socials: [
     {
       label: "Linkedin",

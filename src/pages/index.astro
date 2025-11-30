@@ -1,29 +1,88 @@
 ---
-
 import Layout from "@/layouts/Layout.astro";
 import SocialLinks from "@/components/SocialLinks.astro";
 import PostCard from "@/components/PostCard.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import SidebarNav from "@/components/shared/sidebar.astro";
 
 import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
-
 import presentation from "@/data/presentation";
 import { stackCollections, projectCollections } from "@/data/constants";
 
+const backendStacks = [
+  "NodeJS",
+  "NestJS",
+  "ExpressJS",
+  "ASP.NET Core"
+];
 
+const languageStacks = [
+  "TypeScript",
+  "JavaScript",
+  "C#"
+];
+
+const frontendStacks = [
+  "Angular"
+];
+
+const databaseStacks = [
+  "PostgreSQL",
+  "MySQL",
+  "MongoDB",
+  "SQL Server"
+];
+
+const ormStacks = [
+  "Prisma",
+  "TypeORM"
+];
+
+const devopsStacks = [
+  "Docker",
+  "Docker Compose",
+  "Kubernetes"
+];
+
+const testingStacks = [
+  "Jest"
+];
+
+const toolsStacks = [
+  "GitHub",
+  "Azure DevOps",
+  "Postman",
+  "DBeaver",
+  "Insomnia",
+  "Git"
+];
+
+// Definir las secciones para la navegación lateral
+const navItems = [
+  { id: "presentation", label: "Presentación" },
+  { id: "projects", label: "Proyectos" },
+  { id: "stacks", label: "Tecnologías" },
+  { id: "contact", label: "Contacto" }
+];
 ---
 
 <Layout>
-  <main class="flex flex-col gap-20">
+  <!-- Navegación lateral -->
+  <SidebarNav items={navItems} />
+
+  <main class="flex flex-col gap-24">
+
+    <!-- ========== PRESENTATION ========== -->
     <article
+      id="presentation"
       class="flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12"
     >
-    <iframe
-    src="/icons/github/github-original.svg"
-    class="w-1/4 self-center rounded-full"
-    width="200"
-    height="200"
-  />
+      <iframe
+        src="/icons/github/github-original.svg"
+        class="w-1/4 self-center rounded-full"
+        width="200"
+        height="200"
+      />
 
       <div class="flex flex-col gap-8">
         <h1 class="text-3xl text-neutral-100">
@@ -31,7 +90,7 @@ import { stackCollections, projectCollections } from "@/data/constants";
         </h1>
 
         <h2
-          class="w-auto max-w-[60ch] leading-6"
+          class="w-auto max-w-[60ch] leading-6 text-neutral-300"
           set:html={convertAsteriskToStrongTag(presentation.description)}
         />
 
@@ -39,92 +98,202 @@ import { stackCollections, projectCollections } from "@/data/constants";
       </div>
     </article>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Tecnologias ({stackCollections.length})</h3>
-      </header>
-
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
-        {
-            stackCollections
-              .map((stack) => (
-                <PostCard
-                  name={stack.name}
-                  image={stack.image}
-                />
-              ))
-        }
-      </section>
-    </article>
-
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Proyectos ({projectCollections.length})
+    <!-- ========== PROJECTS ========== -->
+    <article id="projects" class="flex flex-col gap-8">
+      <header>
+        <h3 class="text-xl text-neutral-100 font-semibold">
+          Projects ({projectCollections.length})
         </h3>
       </header>
+
       <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
         {
-            projectCollections.map((project) =>
+          projectCollections.map((project) => (
             <ProjectCard
-                title={project.title}
-                image={project.image}
-                description={project.description}
-                techs={project.techs}
-             />)
+              title={project.title}
+              image={project.image}
+              description={project.description}
+              techs={project.techs}
+            />
+          ))
         }
       </section>
     </article>
 
-    <div class="flex flex-col md:flex-row gap-12">
-      <!-- Columna de información de contacto -->
+
+    <!-- ========== STACKS ========== -->
+    <article id="stacks" class="flex flex-col gap-20">
+
+      <!-- BACKEND -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Backend</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => backendStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- LANGUAGES -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Languages</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => languageStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- DATABASES -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Databases</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => databaseStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- DEVOPS -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">DevOps</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => devopsStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- FRONTEND -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Frontend</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => frontendStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- ORMS -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">ORMs</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => ormStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- TESTING -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Testing</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => testingStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+      <!-- TOOLS -->
+      <section class="flex flex-col gap-6">
+        <h3 class="text-xl text-neutral-100 font-semibold">Tools</h3>
+        <div class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+          {
+            stackCollections
+              .filter(stack => toolsStacks.includes(stack.name))
+              .map(stack => (
+                <PostCard name={stack.name} image={stack.image} />
+              ))
+          }
+        </div>
+      </section>
+
+    </article>
 
 
-      <!-- Columna del formulario -->
+
+
+
+    <!-- ========== CONTACT ========== -->
+    <div id="contact" class="flex flex-col md:flex-row gap-12">
+
       <div class="md:w-1/2 bg-white/10 backdrop-blur-lg p-8 rounded-md shadow-md">
-        <h2 class="text-3xl font-semibold text-neutral-100 mb-6">Contáctame</h2>
+        <h2 class="text-3xl font-semibold text-neutral-100 mb-6">
+          Contáctame
+        </h2>
 
         <form action="/submit-contact" method="POST" class="flex flex-col gap-4">
-          <!-- Nombre -->
+
           <div>
-            <label for="name" class="block text-neutral-300 mb-2">Nombre</label>
+            <label for="name" class="block text-neutral-300 mb-2">
+              Nombre
+            </label>
             <input
               type="text"
               id="name"
               name="name"
-              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Tu nombre"
+              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
-          <!-- Email -->
           <div>
-            <label for="email" class="block text-neutral-300 mb-2">Email</label>
+            <label for="email" class="block text-neutral-300 mb-2">
+              Email
+            </label>
             <input
               type="email"
               id="email"
               name="email"
-              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Tu correo electrónico"
+              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
-          <!-- Mensaje -->
           <div>
-            <label for="message" class="block text-neutral-300 mb-2">Mensaje</label>
+            <label for="message" class="block text-neutral-300 mb-2">
+              Mensaje
+            </label>
             <textarea
               id="message"
               name="message"
               rows="5"
-              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Escribe tu mensaje aquí"
+              class="w-full p-3 rounded-md bg-neutral-800/30 border border-neutral-500 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             ></textarea>
           </div>
 
-          <!-- Botón de envío -->
           <button
             type="submit"
             class="w-full p-3 mt-4 bg-blue-600 text-neutral-100 font-semibold rounded-md transition-transform duration-300 hover:scale-105 hover:bg-blue-500"
@@ -135,15 +304,11 @@ import { stackCollections, projectCollections } from "@/data/constants";
       </div>
 
       <article class="md:w-1/2 flex flex-col gap-8">
-        <header class="flex w-full flex-row justify-between gap-2">
-          <h3 class="text-lg text-neutral-100">Get in touch</h3>
-        </header>
-
-        <div>
-          <!-- Aquí irían tus enlaces a redes sociales -->
-          <SocialLinks />
-        </div>
+        <h3 class="text-lg text-neutral-100">Get in touch</h3>
+        <SocialLinks />
       </article>
+
     </div>
+
   </main>
 </Layout>
