@@ -63,6 +63,8 @@ const resources = {
 
       // Contact section
       contactTitle: 'Contact Me',
+      contactCTA: 'Prefer email? Send me a message directly.',
+      emailMe: 'Send Email',
       name: 'Name',
       namePlaceholder: 'Enter your name',
       email: 'Email',
@@ -71,6 +73,8 @@ const resources = {
       messagePlaceholder: 'Write your message here',
       sendMessage: 'Send Message',
       getInTouch: 'Get in touch',
+      contactSuccess: 'Message sent — thank you! I will get back to you soon.',
+      contactError: 'There was an error sending your message. Please try again later.',
     },
   },
   es: {
@@ -133,6 +137,8 @@ const resources = {
 
       // Contact section
       contactTitle: 'Contáctame',
+      contactCTA: '¿Prefieres correo? Envíame un mensaje directamente.',
+      emailMe: 'Enviar Correo',
       name: 'Nombre',
       namePlaceholder: 'Ingresa tu nombre',
       email: 'Correo',
@@ -141,6 +147,8 @@ const resources = {
       messagePlaceholder: 'Escribe tu mensaje aquí',
       sendMessage: 'Enviar Mensaje',
       getInTouch: 'Ponte en contacto',
+      contactSuccess: 'Mensaje enviado — ¡gracias! Me pondré en contacto pronto.',
+      contactError: 'Hubo un error enviando tu mensaje. Por favor intenta de nuevo más tarde.',
     },
   },
 };
