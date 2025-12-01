@@ -20,5 +20,5 @@ const { label, isUnderline, ...props } = Astro.props;
   target="_blank"
 >
   {label}
-  <span class="sr-only">{label} link</span>
+  <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;">{label} link</span>
 </a>

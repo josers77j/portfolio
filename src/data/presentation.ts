@@ -16,7 +16,7 @@ const presentation: Presentation = {
   title: "Hi, I’m Ruben 👋",
   // profile: "/profile.webp",
   description:
-    "Backend Developer specialized in Node.js, NestJS and PostgreSQL. I build scalable, well-structured APIs and systems using modern tools like Docker, Prisma and Angular. Currently focused on strengthening my frontend skills while building complete, real-world projects.",
+    "Backend developer specialized in Node.js, NestJS and PostgreSQL. I design and build well-structured APIs and scalable systems, with hands-on experience in Docker, Prisma and system architecture. Currently expanding my frontend skills while focusing on building production-ready applications",
   socials: [
     {
       label: "Linkedin",

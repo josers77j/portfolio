@@ -1,5 +1,7 @@
 ---
 // SidebarNav.astro
+import LanguageSwitcher from "../LanguageSwitcher";
+
 type NavItem = {
   id: string;
   label: string;
@@ -13,22 +15,28 @@ const { items } = Astro.props;
 ---
 
 <nav class="fixed right-8 top-1/2 -translate-y-1/2 hidden lg:block z-50">
-  <ul class="flex flex-col gap-6">
-    {items.map((item) => (
-      <li class="relative group">
-        <a
-          href={`#${item.id}`}
-          data-section={item.id}
-          class="nav-dot flex items-center gap-3 transition-all duration-300 flex-row-reverse"
-        >
-          <span class="w-3 h-3 rounded-full bg-neutral-400 border-2 border-neutral-400 transition-all duration-300 group-hover:bg-blue-400 group-hover:border-blue-400 group-hover:scale-125"></span>
-          <span class="nav-label opacity-100 text-sm text-neutral-100 font-medium whitespace-nowrap transition-all duration-300 absolute right-6">
-            {item.label}
-          </span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div class="flex flex-col gap-8 items-center">
+    <!-- Language Switcher -->
+    <LanguageSwitcher client:load />
+
+    <!-- Navigation Dots -->
+    <ul class="flex flex-col gap-6">
+      {items.map((item) => (
+        <li class="relative group">
+          <a
+            href={`#${item.id}`}
+            data-section={item.id}
+            class="nav-dot flex items-center gap-3 transition-all duration-300 flex-row-reverse"
+          >
+            <span class="w-3 h-3 rounded-full bg-neutral-400 border-2 border-neutral-400 transition-all duration-300 group-hover:bg-blue-400 group-hover:border-blue-400 group-hover:scale-125"></span>
+            <span class="nav-label opacity-100 text-sm text-neutral-100 font-medium whitespace-nowrap transition-all duration-300 absolute right-6">
+              {item.label}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </nav>
 
 <style>

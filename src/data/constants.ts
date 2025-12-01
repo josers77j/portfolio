@@ -92,16 +92,72 @@ export const stackCollections = [
   },
 ]
 
-  export const projectCollections = [
-    {"title":"Sistema de Gestión de Inventario",
-    "image":"/img/inventoryManagement.png",
-    "description":"Descripcion: Sistema de gestión de inventario para un instituto que imparte cursos de formación profesional. Permite llevar un control de los productos, proveedores, compras y ventas.",
-    "techs":"Tecnologias: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github",
-    },
-    {"title":"Sistema de Gestión de Inventario",
-      "image":"/img/inventoryManagement.png",
-      "description":"Descripcion: Sistema .",
-      "techs":"Tecnologias: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github",
-      },
+//   export const projectCollections = [
+//     {
+//       titleKey: 'project1Title',
+//       image: '/img/inventoryManagement.png',
+//       descriptionKey: 'project1Desc',
+//       techsKey: 'project1Techs',
+//     },
+//     {
+//       titleKey: 'project2Title',
+//       image: '/img/inventoryManagement.png',
+//       descriptionKey: 'project2Desc',
+//       techsKey: 'project2Techs',
+//     },
 
-  ]
+//   ];
+
+export const projectCollections = [
+  {
+    titleKey: 'project3Title',
+    image: "/img/teslo.png",
+    descriptionKey: 'project3Desc',
+    techsKey: 'project3Techs',
+    codeUrl: 'https://github.com/josers77j/angular-teslo-shop-app',
+    demoUrl: 'https://teslo-shop-prod.netlify.app/#/',
+    extraLinks: [
+      { label: 'Backend repo', url: 'https://github.com/josers77j/nest-teslo-shop' },
+    ],
+    noteKey: 'project3Note',
+  },
+  {
+    titleKey: 'project4Title',
+    image: "/img/microservices.png",
+    descriptionKey: 'project4Desc',
+    techsKey: 'project4Techs',
+    codeUrl: 'https://github.com/orgs/Nest-Microservices-Trejo/repositories',
+  },
+  {
+    titleKey: 'project5Title',
+    image: "/img/mapbox.png",
+    descriptionKey: 'project5Desc',
+    techsKey: 'project5Techs',
+    codeUrl: 'https://github.com/josers77j/angular-maps-app',
+    demoUrl: 'https://papaya-paletas-90b207.netlify.app/',
+  },
+  {
+    titleKey: 'project6Title',
+    image: "/img/giphy.png",
+    descriptionKey: 'project6Desc',
+    techsKey: 'project6Techs',
+    codeUrl: 'https://github.com/josers77j/gifs-app-angular',
+    demoUrl: 'https://gifs-app-deploy.netlify.app/',
+  },
+  {
+    titleKey: 'project7Title',
+    descriptionKey: 'project7Desc',
+    techsKey: 'project7Techs',
+    codeUrl: 'https://github.com/josers77j/pokedex',
+  }
+  ,
+  {
+    titleKey: 'project8Title',
+    image: '/img/countries.png',
+    descriptionKey: 'project8Desc',
+    techsKey: 'project8Techs',
+    codeUrl: 'https://github.com/josers77j/angular-country-app',
+    demoUrl: 'https://countries-app-deploy.netlify.app/'
+    ,noteKey: 'project8Note'
+  }
+]
