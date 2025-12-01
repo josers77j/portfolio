@@ -13,7 +13,6 @@ export default function SidebarNav() {
   ]);
 
   useEffect(() => {
-    // Observer para detectar la sección visible
     const observerOptions = {
       root: null,
       rootMargin: '-50% 0px -50% 0px',

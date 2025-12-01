@@ -14,7 +14,6 @@ type Presentation = {
 const presentation: Presentation = {
   mail: "josers772@outlook.es",
   title: "Hi, I’m Ruben 👋",
-  // profile: "/profile.webp",
   description:
     "Backend developer specialized in Node.js, NestJS and PostgreSQL. I design and build well-structured APIs and scalable systems, with hands-on experience in Docker, Prisma and system architecture. Currently expanding my frontend skills while focusing on building production-ready applications",
   socials: [

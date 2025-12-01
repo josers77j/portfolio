@@ -1,5 +1,3 @@
----
-// SidebarNav.astro
 import LanguageSwitcher from "../LanguageSwitcher";
 
 type NavItem = {
@@ -48,14 +46,12 @@ const { items } = Astro.props;
     @apply opacity-100 text-blue-300 font-semibold;
   }
 
-  /* Efecto de sombra para mejor visibilidad */
   .nav-label {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 </style>
 
 <script>
-  // Detectar la sección visible y actualizar el indicador activo
   const observerOptions = {
     root: null,
     rootMargin: '-50% 0px -50% 0px',
@@ -65,12 +61,11 @@ const { items } = Astro.props;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Remover clase active de todos los dots
+
         document.querySelectorAll('.nav-dot').forEach((dot) => {
           dot.classList.remove('active');
         });
 
-        // Agregar clase active al dot correspondiente
         const activeId = entry.target.id;
         const activeDot = document.querySelector(`.nav-dot[data-section="${activeId}"]`);
         if (activeDot) {
@@ -79,14 +74,10 @@ const { items } = Astro.props;
       }
     });
   }, observerOptions);
-
-  // Observar todas las secciones
   document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('article[id], section[id]');
     sections.forEach((section) => observer.observe(section));
   });
-
-  // Scroll suave al hacer clic
   document.querySelectorAll('.nav-dot').forEach((dot) => {
     dot.addEventListener('click', (e) => {
       e.preventDefault();

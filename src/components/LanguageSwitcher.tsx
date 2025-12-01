@@ -8,7 +8,6 @@ export default function LanguageSwitcher() {
   useEffect(() => {
     setMounted(true);
 
-    // Get language from localStorage or default to 'en'
     if (typeof window !== 'undefined') {
       const savedLang = localStorage.getItem('language') || 'en';
       setCurrentLang(savedLang);
@@ -24,7 +23,6 @@ export default function LanguageSwitcher() {
     }
   };
 
-  // Evitar hydration mismatch
   if (!mounted) {
     return (
       <div className="flex gap-2">

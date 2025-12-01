@@ -4,13 +4,13 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      // Navigation
+
       navPresentation: 'Presentation',
       navProjects: 'Projects',
       navStacks: 'Technologies',
       navContact: 'Contact',
 
-      // Projects section
+
       projectsTitle: 'Projects',
       project1Title: 'Inventory Management System',
       project1Desc: 'Description: Inventory management system for an institute that teaches professional training courses. It allows control of products, suppliers, purchases and sales.',
@@ -20,13 +20,13 @@ const resources = {
         project2Techs: 'Technologies: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github',
       project3Title: 'Teslo Shop – Full Stack E-commerce Platform',
       project3Desc: 'Full stack e-commerce platform with authentication, roles, product management, purchases and order flow. Each layer is deployed independently to a production environment.',
-      project3Techs: 'NestJS, Angular, PostgreSQL, Prisma, Docker, JWT, REST API',
+      project3Techs: 'NestJS, Angular, PostgreSQL, TypeORM, Docker, JWT, REST API',
 
       project3Note: 'Admin panel credentials:\nuser: test1@google.com\npassword: Abc123\n(login required to access admin panel).',
 
       project4Title: 'Microservices & Payments System',
       project4Desc: 'Microservices-based system for products, users and orders, including payment integration with Stripe and CI/CD deployment using Kubernetes and Google Cloud.',
-      project4Techs: 'Node.js, Docker, Kubernetes, Stripe API, MongoDB, PostgreSQL, SQLite, CI/CD',
+      project4Techs: 'Node.js, Docker, Kubernetes, Stripe API, MongoDB, PostgreSQL, SQLite, Prisma, CI/CD',
 
       project5Title: 'Maps & Locations Finder',
       project5Desc: 'Interactive application that allows users to save and manage locations using real-time maps and optimized requests with caching.',
@@ -46,11 +46,11 @@ const resources = {
       viewCode: 'View Code',
       viewDemo: 'View Demo',
 
-      // Presentation
+
       presentationTitle: 'Hi, I\'m Ruben 👋',
       presentationDescription: 'Backend developer specialized in Node.js, NestJS and PostgreSQL. I design and build well-structured APIs and scalable systems, with hands-on experience in Docker, Prisma and system architecture. Currently expanding my frontend skills while focusing on building production-ready applications',
 
-      // Stacks section
+
       stacksTitle: 'Technologies',
       backend: 'Backend',
       languages: 'Languages',
@@ -61,7 +61,7 @@ const resources = {
       testing: 'Testing',
       tools: 'Tools',
 
-      // Contact section
+
       contactTitle: 'Contact Me',
       contactCTA: 'Prefer email? Send me a message directly.',
       emailMe: 'Send Email',
@@ -79,13 +79,13 @@ const resources = {
   },
   es: {
     translation: {
-      // Navigation
+
       navPresentation: 'Presentación',
       navProjects: 'Proyectos',
       navStacks: 'Tecnologías',
       navContact: 'Contacto',
 
-      // Projects section
+
       projectsTitle: 'Proyectos',
       project1Title: 'Sistema de Gestión de Inventario',
       project1Desc: 'Descripción: Sistema de gestión de inventario para un instituto que imparte cursos de formación profesional. Permite llevar un control de los productos, proveedores, compras y ventas.',
@@ -95,12 +95,12 @@ const resources = {
         project2Techs: 'Tecnologías: PHP, AJAX, MySQL, MVC, HTML, CSS, JavaScript, jQuery, Bootstrap, Github',
       project3Title: 'Teslo Shop – Plataforma e-commerce Full Stack',
       project3Desc: 'Plataforma e-commerce full stack con autenticación, roles, gestión de productos, flujo de compras y pedidos. Cada capa está desplegada de forma independiente en entornos de producción.',
-      project3Techs: 'NestJS, Angular, PostgreSQL, Prisma, Docker, JWT, REST API',
+      project3Techs: 'NestJS, Angular, PostgreSQL, TypeORM, Docker, JWT, REST API',
       project3Note: 'Credenciales para el panel administrativo:\nUsuario: test1@google.com\nContraseña: Abc123\n(se requiere inicio de sesión para acceder al panel).',
 
       project4Title: 'Microservicios y Sistema de Pagos',
       project4Desc: 'Sistema basado en microservicios para productos, usuarios y pedidos, con integración de pagos mediante Stripe y despliegue CI/CD en Kubernetes y Google Cloud.',
-      project4Techs: 'Node.js, Docker, Kubernetes, Stripe API, MongoDB, PostgreSQL, SQLite, CI/CD',
+      project4Techs: 'Node.js, Docker, Kubernetes, Stripe API, MongoDB, PostgreSQL, SQLite, Prisma, CI/CD',
 
       project5Title: 'Buscador de Mapas y Ubicaciones',
       project5Desc: 'Aplicación interactiva que permite guardar y gestionar ubicaciones usando mapas en tiempo real y peticiones optimizadas con caché.',
@@ -120,11 +120,11 @@ const resources = {
       viewCode: 'Ver Código',
       viewDemo: 'Ver Demo',
 
-      // Presentation
+
       presentationTitle: 'Hola, soy Ruben 👋',
       presentationDescription: 'Desarrollador backend especializado en Node.js, NestJS y PostgreSQL. Diseño y construyo APIs bien estructuradas y sistemas escalables, con experiencia práctica en Docker, Prisma y arquitectura de sistemas. Actualmente estoy ampliando mis habilidades de frontend mientras me centro en construir aplicaciones listas para producción.',
 
-      // Stacks section
+
       stacksTitle: 'Tecnologías',
       backend: 'Backend',
       languages: 'Lenguajes',
@@ -135,7 +135,7 @@ const resources = {
       testing: 'Pruebas',
       tools: 'Herramientas',
 
-      // Contact section
+
       contactTitle: 'Contáctame',
       contactCTA: '¿Prefieres correo? Envíame un mensaje directamente.',
       emailMe: 'Enviar Correo',

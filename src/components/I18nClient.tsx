@@ -8,7 +8,7 @@ export default function I18nClient() {
         const key = el.getAttribute('data-i18n');
         if (!key) return;
         const value = i18n.t(key);
-        // If element requests HTML (e.g. notes with line breaks), render as innerHTML
+
         if (el.hasAttribute('data-i18n-html')) {
           const html = String(value).replace(/\s?\/\s?/g, '<br/>').replace(/\n/g, '<br/>');
           el.innerHTML = html;
@@ -18,7 +18,7 @@ export default function I18nClient() {
       });
     };
 
-    // Initial update and subscribe to language changes
+
     updateAll();
     i18n.on('languageChanged', updateAll);
 

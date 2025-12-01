@@ -1,5 +1,4 @@
 export const stackCollections = [
-  // Languages
   {
     name: "TypeScript",
     image: "/icons/typescript/typescript-original.svg",
@@ -13,7 +12,7 @@ export const stackCollections = [
     image: "/icons/c/c-sharp.svg",
   },
 
-  // Backend / Frameworks
+
   {
     name: "NodeJS",
     image: "/icons/nodejs/nodejs-original.svg",
@@ -31,13 +30,13 @@ export const stackCollections = [
     image: "/icons/c/dot-net-core.svg",
   },
 
-  // Frontend
+
   {
     name: "Angular",
     image: "/icons/angular/angular.svg",
   },
 
-  // Databases
+
   {
     name: "PostgreSQL",
     image: "/icons/postgresql/postgresql-original.svg",
@@ -55,7 +54,7 @@ export const stackCollections = [
     image: "/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
   },
 
-  // ORMs / DB tools
+
   {
     name: "Prisma",
     image: "/icons/prisma/prisma-original.svg",
@@ -65,7 +64,7 @@ export const stackCollections = [
     image: "/icons/typeorm/typeorm.svg",
   },
 
-  // DevOps
+
   {
     name: "Docker",
     image: "/icons/docker/docker-original.svg",
@@ -75,13 +74,13 @@ export const stackCollections = [
     image: "/icons/kubernetes/kubernetes-plain.svg",
   },
 
-  // Testing
+
   {
     name: "Jest",
     image: "/icons/jest/jest.svg",
   },
 
-  // Tools
+
   {
     name: "GitHub",
     image: "/icons/github/github-original.svg",
@@ -91,22 +90,6 @@ export const stackCollections = [
     image: "/icons/azure/azure.svg",
   },
 ]
-
-//   export const projectCollections = [
-//     {
-//       titleKey: 'project1Title',
-//       image: '/img/inventoryManagement.png',
-//       descriptionKey: 'project1Desc',
-//       techsKey: 'project1Techs',
-//     },
-//     {
-//       titleKey: 'project2Title',
-//       image: '/img/inventoryManagement.png',
-//       descriptionKey: 'project2Desc',
-//       techsKey: 'project2Techs',
-//     },
-
-//   ];
 
 export const projectCollections = [
   {

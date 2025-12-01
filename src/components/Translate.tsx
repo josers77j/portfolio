@@ -12,7 +12,6 @@ export default function Translate({ k }: TranslateProps) {
   useEffect(() => {
     setMounted(true);
 
-    // Actualizar el texto cuando cambia el idioma
     const updateText = () => {
       setText(i18next.t(k));
     };
