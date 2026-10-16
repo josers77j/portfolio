@@ -1,4 +1,5 @@
 ---
+import Projects from '@/components/portfolio/Projects.astro';
 import Stack from '@/components/portfolio/Stack.astro';
 import Experience from '@/components/portfolio/Experience.astro';
 import Introduction from '@/components/portfolio/Introduction.astro';
@@ -8,5 +9,5 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 ---
 <PortfolioLayout locale={locale}>
-  <main id="main"><Introduction locale={locale} /><Stack locale={locale} /><Experience locale={locale} /></main>
+  <main id="main"><Introduction locale={locale} /><Stack locale={locale} /><Projects locale={locale} /><Experience locale={locale} /></main>
 </PortfolioLayout>
