@@ -1,0 +1,23 @@
+---
+import { copy, type Locale } from '@/data/portfolio';
+interface Props { locale: Locale }
+const t = copy[Astro.props.locale];
+---
+<section id="experiencia" class="experience-full" aria-labelledby="experience-title">
+  <h2 id="experience-title">{t.experience}</h2>
+  <div class="experience-list">{t.jobs.map(job => <details class="panel job" id={job.id}><summary><span>{job.name}<time>{job.date}</time></span></summary><p><strong>{t.contribution}: </strong>{job.text}</p><p><strong>{t.learning}: </strong>{job.learning}</p></details>)}</div>
+</section>
+<script>
+  const revealJob = () => {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target instanceof HTMLDetailsElement) target.open = true;
+  };
+  revealJob();
+  window.addEventListener('hashchange', revealJob);
+  document.querySelectorAll<HTMLAnchorElement>('[data-job]').forEach(link => {
+    link.addEventListener('click', () => {
+      const target = document.getElementById(link.dataset.job || '');
+      if (target instanceof HTMLDetailsElement) target.open = true;
+    });
+  });
+</script>
