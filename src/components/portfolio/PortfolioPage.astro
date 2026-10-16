@@ -1,0 +1,9 @@
+---
+import PortfolioLayout from '@/layouts/PortfolioLayout.astro';
+import type { Locale } from '@/data/portfolio';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<PortfolioLayout locale={locale}>
+  <main id="main"></main>
+</PortfolioLayout>

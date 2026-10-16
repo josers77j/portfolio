@@ -1,0 +1,70 @@
+---
+import type { Locale } from '@/data/portfolio';
+import { copy } from '@/data/portfolio';
+import '@/styles/portfolio.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={t.description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f8fafc" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{t.title}</title>
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      } catch { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.skip}</a>
+    <div class="site-shell">
+      <header class="navbar">
+        <a class="brand" href={locale === 'es' ? '/' : '/en/'} aria-label="José Ruben Trejo">JT<span>.</span></a>
+        <nav aria-label={locale === 'es' ? 'Navegación principal' : 'Main navigation'}>
+          {['inicio', 'experiencia', 'stack', 'proyectos'].map((id, i) => <a href={`#${id}`}>{t.nav[i]}</a>)}
+        </nav>
+        <div class="nav-controls">
+          <div class="language-control" role="group" aria-label={t.language}>
+            <a href="/" lang="es" hreflang="es" aria-current={locale === 'es' ? 'page' : undefined}>ES</a>
+            <a href="/en/" lang="en" hreflang="en" aria-current={locale === 'en' ? 'page' : undefined}>EN</a>
+          </div>
+          <button id="theme-toggle" class="theme-toggle" aria-label={t.theme} aria-pressed="false"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span></button>
+        </div>
+      </header>
+      <slot />
+      <footer class="footer"><span>© {new Date().getFullYear()} José Ruben Trejo</span><span>{t.footer}</span><a href="#inicio" aria-label={locale === 'es' ? 'Volver al inicio' : 'Back to top'}>↑</a></footer>
+    </div>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
+      const media = matchMedia('(prefers-color-scheme: dark)');
+      const sync = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        button?.setAttribute('aria-pressed', String(dark));
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0b1220' : '#f8fafc');
+      };
+      sync();
+      button?.addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = theme;
+        try { localStorage.setItem('portfolio-theme', theme); } catch {}
+        sync();
+      });
+      media.addEventListener('change', (event) => {
+        try { if (localStorage.getItem('portfolio-theme')) return; } catch {}
+        document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
+        sync();
+      });
+      document.querySelectorAll<HTMLAnchorElement>('.language-control a').forEach(link => {
+        link.addEventListener('click', () => { link.hash = location.hash; });
+      });
+    </script>
+  </body>
+</html>
