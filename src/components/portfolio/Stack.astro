@@ -1,0 +1,9 @@
+---
+import { copy, stack, type Locale } from '@/data/portfolio';
+interface Props { locale: Locale }
+const t = copy[Astro.props.locale];
+---
+<section id="stack" class="panel stack-section" aria-labelledby="stack-title">
+  <h2 id="stack-title">{t.stack}</h2>
+  <div class="stack-grid">{stack.map((group, index) => <div class="stack-group"><h3>{t.groups[index]}</h3><ul class="chips" role="list" style="list-style:none;padding:0;margin:0">{group.map(name => <li class="chip"><span class="chip-mark" aria-hidden="true"></span>{name}</li>)}</ul></div>)}</div>
+</section>
