@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/env.d.ts",
+    "src/data/portfolio.ts",
+    "src/layouts/PortfolioLayout.astro",
+    "src/components/portfolio/**/*",
+    "src/pages/index.astro",
+    "src/pages/en/index.astro"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

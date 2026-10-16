@@ -1,15 +1,59 @@
 ---
-import { copy, type Locale } from '@/data/portfolio';
-interface Props { locale: Locale }
+import { copy, type Locale } from "@/data/portfolio";
+interface Props {
+  locale: Locale;
+}
 const t = copy[Astro.props.locale];
 ---
-<section id="proyectos" class="projects-section" aria-labelledby="projects-title">
+
+<section
+  id="proyectos"
+  class="projects-section"
+  aria-labelledby="projects-title"
+>
   <h2 id="projects-title">{t.projects}</h2>
   <p class="section-intro">{t.projectIntro}</p>
-  <div class="project-grid">{t.cases.map(project => <article class="panel project-card">
-    <div class={`project-art ${project.visual}`} aria-hidden="true"><div class="art-window"><div class="art-dots"><i></i><i></i><i></i></div><div class="art-bars"><i></i><i></i><i></i><i></i></div></div></div>
-    <div class="project-body"><h3>{project.title}</h3><span class="badge">{project.type}</span><p>{project.summary}</p>
-      <details class="project-details"><summary>{t.details}</summary><p>{project.text}</p><p class="tech">{project.tech}</p></details>
-    </div>
-  </article>)}</div>
+  <div class="project-grid">
+    {
+      t.cases.map((project) => (
+        <article class="panel project-card">
+          <div class={`project-art ${project.visual}`} aria-hidden="true">
+            <div class="art-window">
+              <>
+                <div class="art-dots">
+                  <i />
+                  <>
+                    <i />
+                    <i />
+                  </>
+                </div>
+                <div class="art-bars">
+                  <i />
+                  <i />
+                  <>
+                    <i />
+                    <i />
+                  </>
+                </div>
+              </>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="badge">{project.type}</span>
+            <>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+            </>
+            <details class="project-details">
+              <p>{project.text}</p>
+              <>
+                <summary>{t.details}</summary>
+                <p class="tech">{project.tech}</p>
+              </>
+            </details>
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
