@@ -4,17 +4,27 @@ import Stack from "@/components/portfolio/Stack.astro";
 import Experience from "@/components/portfolio/Experience.astro";
 import Introduction from "@/components/portfolio/Introduction.astro";
 import PortfolioLayout from "@/layouts/PortfolioLayout.astro";
-import type { Locale } from "@/data/portfolio";
+import { copy, identity, type Locale } from "@/data/portfolio";
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+const t = copy[locale];
 ---
 
 <PortfolioLayout locale={locale}>
   <main id="main">
-    <Introduction locale={locale} /><Stack locale={locale} /><Projects
-      locale={locale}
-    /><Experience locale={locale} />
+    <Introduction locale={locale} />
+    <Experience locale={locale} />
+    <Projects locale={locale} />
+    <Stack locale={locale} />
+    <section id="contacto" class="panel contact-closing" aria-labelledby="contact-closing-title">
+      <h2 id="contact-closing-title">{t.contactClosing}</h2>
+      <p>{t.contactClosingText}</p>
+      <div class="actions">
+        <a class="button primary" href={`mailto:${identity.email}`}>{t.talk} ↗</a>
+        <a class="button" href={identity.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
   </main>
 </PortfolioLayout>

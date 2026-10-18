@@ -9,16 +9,15 @@
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro",
-    "check:portfolio": "astro check --tsconfig tsconfig.portfolio.json --minimumSeverity warning"
+    "check:portfolio": "astro check --tsconfig tsconfig.portfolio.json --minimumSeverity warning",
+    "lint": "eslint src --ext .astro,.ts,.tsx --max-warnings 0"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.12",
-    "astro-font": "^0.0.77",
     "astro-robots-txt": "^1.0.0",
-    "astro-seo": "0.8.0",
     "i18next": "^23.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

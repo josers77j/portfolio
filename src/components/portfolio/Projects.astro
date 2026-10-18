@@ -1,9 +1,53 @@
 ---
 import { copy, type Locale } from "@/data/portfolio";
+import TechIcon from "./TechIcon.astro";
+import { projectCollections } from "@/data/constants";
+import i18n from "@/i18n";
 interface Props {
   locale: Locale;
 }
 const t = copy[Astro.props.locale];
+const translate = i18n.getFixedT(Astro.props.locale);
+interface ProjectCard {
+  title: string;
+  type: string;
+  summary: string;
+  text: string;
+  tech: string;
+  visual: string;
+  image?: string;
+  featured?: boolean;
+  status?: string;
+  repositories?: readonly { label: string; url: string }[];
+}
+const originalProjects: ProjectCard[] = projectCollections
+  .filter((project) => project.titleKey !== "project4Title")
+  .map((project) => ({
+    title: translate(project.titleKey),
+    type: "Personal",
+    summary: translate(project.descriptionKey).split(". ")[0],
+    text: translate(project.descriptionKey),
+    tech: translate(project.techsKey).split(", ").flatMap((name) => name === "NestJS" ? ["Node.js", name] : [name]).join(" · "),
+    visual: "community",
+    image: "image" in project ? project.image : undefined,
+    repositories: [
+      { label: Astro.props.locale === "es" ? "Código" : "Source", url: project.codeUrl },
+      ...("extraLinks" in project ? project.extraLinks ?? [] : []),
+      ...("demoUrl" in project && project.demoUrl ? [{ label: "Demo", url: project.demoUrl }] : []),
+    ],
+  }));
+const projects: ProjectCard[] = [
+  ...t.cases.map((project) => project.title === "Products Launcher" ? {
+    ...project,
+    featured: true,
+    image: projectCollections.find((original) => original.titleKey === "project4Title")?.image,
+    repositories: [{
+      label: t.code,
+      url: projectCollections.find((original) => original.titleKey === "project4Title")!.codeUrl,
+    }],
+  } : { ...project, featured: true }),
+  ...originalProjects,
+];
 ---
 
 <section
@@ -13,10 +57,18 @@ const t = copy[Astro.props.locale];
 >
   <h2 id="projects-title">{t.projects}</h2>
   <p class="section-intro">{t.projectIntro}</p>
-  <div class="project-grid">
+  {[true, false].map((featured) => (
+    <div class={featured ? "featured-projects" : "additional-projects"}>
+      {!featured && <><h3 class="other-projects-title">{t.otherProjects}</h3><p class="section-intro">{t.otherProjectIntro}</p></>}
+      <div class={`project-grid ${featured ? "featured-grid" : "additional-grid"}`}>
     {
-      t.cases.map((project) => (
+      projects.filter((project) => Boolean(project.featured) === featured).map((project) => (
         <article class="panel project-card">
+          {project.image ? (
+            <div class="project-art project-screenshot">
+              <img src={project.image} alt={`${Astro.props.locale === "es" ? "Vista de" : "Preview of"} ${project.title}`} loading="lazy" decoding="async" />
+            </div>
+          ) : (
           <div class={`project-art ${project.visual}`} aria-hidden="true">
             <div class="art-window">
               <>
@@ -38,22 +90,38 @@ const t = copy[Astro.props.locale];
               </>
             </div>
           </div>
+          )}
           <div class="project-body">
             <span class="badge">{project.type}</span>
             <>
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
             </>
-            <details class="project-details">
+            {project.featured && <div class="project-contribution"><h4>{t.projectContribution}</h4><p>{project.text}</p></div>}
+            <ul class="chips project-technologies" role="list">
+              {project.tech.split(" · ").map((name) => (
+                <li class="chip"><TechIcon name={name} />{name}</li>
+              ))}
+            </ul>
+            {project.status && <p class="project-status">{project.status}</p>}
+            {project.repositories && (
+              <div class="project-links" role="group" aria-label={`${project.title} · ${t.code}`}>
+                {project.repositories.map((repository) => (
+                  <a href={repository.url} target="_blank" rel="noopener noreferrer">
+                    {repository.label}<span aria-hidden="true"> ↗</span>
+                  </a>
+                ))}
+              </div>
+            )}
+            {!project.featured && <details class="project-details">
+              <summary>{t.details}</summary>
               <p>{project.text}</p>
-              <>
-                <summary>{t.details}</summary>
-                <p class="tech">{project.tech}</p>
-              </>
-            </details>
+            </details>}
           </div>
         </article>
       ))
     }
-  </div>
+      </div>
+    </div>
+  ))}
 </section>

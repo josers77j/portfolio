@@ -1,0 +1,234 @@
+---
+import { copy, type Locale } from "@/data/portfolio";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = copy[locale];
+const sections = [
+  { id: "inicio", label: t.nav[0] },
+  { id: "experiencia", label: t.nav[1] },
+  { id: "comunidad", label: t.communityNav },
+  { id: "proyectos", label: t.nav[3] },
+  { id: "stack", label: t.nav[2] },
+  { id: "contacto", label: t.contact },
+];
+---
+
+<div class="portfolio-settings">
+  <div class="theme-setting">
+    <span class="settings-icon" aria-hidden="true">☀</span>
+    <button id="theme-toggle" class="theme-toggle" role="switch" aria-label={t.theme} aria-checked="false">
+      <span class="switch-thumb" aria-hidden="true"></span>
+    </button>
+    <span class="settings-icon" aria-hidden="true">☾</span>
+  </div>
+  <div class="language-control" role="group" aria-label={t.language}>
+    <a href="/" lang="es" hreflang="es" aria-current={locale === "es" ? "page" : undefined}>ES</a>
+    <span aria-hidden="true">|</span>
+    <a href="/en/" lang="en" hreflang="en" aria-current={locale === "en" ? "page" : undefined}>EN</a>
+  </div>
+</div>
+<nav class="section-navigation" aria-label={t.sectionNavigation}>
+  <ol>
+    {sections.map((section, index) => (
+      <li>
+        <a href={`#${section.id}`} data-section-link={section.id}
+          data-state={index === 0 ? "focus" : index === 1 ? "adjacent" : "inactive"}
+          aria-current={index === 0 ? "location" : undefined}>
+          <span>{section.label}</span><span class="section-mark" aria-hidden="true"></span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .section-navigation {
+    --nav-inactive: #64748b;
+    --nav-adjacent: #5279a7;
+    position: fixed;
+    right: max(24px, calc((100vw - 1420px) / 2 + 28px));
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    width: 156px;
+  }
+  :global([data-theme="dark"]) .section-navigation {
+    --nav-inactive: #73839c;
+    --nav-adjacent: #7096c4;
+  }
+  .portfolio-settings {
+    position: fixed;
+    right: max(36px, calc((100vw - 1420px) / 2 + 40px));
+    top: 36px;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .theme-setting { display: flex; align-items: center; gap: 9px; }
+  .settings-icon { color: var(--muted); font-size: 1.35rem; line-height: 1; }
+  .portfolio-settings .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    width: 44px;
+    height: 25px;
+    padding: 3px;
+    border: 1px solid var(--blue);
+    border-radius: 30px;
+    background: var(--soft);
+    cursor: pointer;
+  }
+  .switch-thumb {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--blue);
+    transition: transform 180ms ease;
+  }
+  :global([data-theme="dark"]) .switch-thumb { transform: translateX(18px); }
+  .portfolio-settings .language-control {
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: .8rem;
+  }
+  .portfolio-settings .language-control a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+  }
+  ol { display: flex; flex-direction: column; gap: 12px; }
+  .section-position {
+    display: block;
+    text-align: right;
+    color: var(--nav-inactive);
+    font-size: .7rem;
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 20px;
+    padding-right: 12px;
+  }
+  [data-section-position] { color: var(--orange); }
+  ol { list-style: none; margin: 0; padding: 0; }
+  ol a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+    min-height: 48px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--nav-inactive);
+    font-size: .8rem;
+    transition: color 180ms ease, background-color 180ms ease;
+  }
+  .section-mark {
+    flex: 0 0 32px;
+    height: 2px;
+    background: currentColor;
+    transition: box-shadow 180ms ease;
+  }
+  ol a[data-state="adjacent"] { color: var(--nav-adjacent); }
+  ol a[data-state="focus"] {
+    color: var(--orange);
+    font-weight: 650;
+    background: radial-gradient(ellipse at 85% 50%, var(--glow-orange), transparent 75%);
+  }
+  ol a[data-state="focus"] .section-mark { box-shadow: 0 0 14px var(--orange); }
+  ol a:hover { color: var(--blue); }
+  ol a[data-state="focus"]:hover { color: var(--orange); }
+  ol a:focus-visible { outline-offset: -3px; }
+  @media (min-width: 1100px) {
+    :global(.site-shell) { max-width: 1420px; padding-right: 210px; }
+    :global(.navbar) { grid-template-columns: 1fr auto; }
+  }
+  @media (max-width: 1099px) {
+    :global(html) { scroll-padding-top: 80px; }
+    .section-navigation {
+      position: sticky;
+      top: 0;
+      width: auto;
+      transform: none;
+      margin: 0 0 18px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .portfolio-settings {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+    .section-position { display: none; }
+    ol {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 8px 2px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line) transparent;
+    }
+    li { flex: 0 0 auto; }
+    ol a { flex-direction: column; gap: 8px; padding: 8px 12px; min-height: 48px; }
+    .section-mark { flex: 0 0 2px; width: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ol a, .section-mark, .switch-thumb { transition: none; }
+  }
+</style>
+
+<script>
+  const navigation = document.querySelector<HTMLElement>(".section-navigation");
+  if (navigation) {
+    const links = Array.from(navigation.querySelectorAll<HTMLAnchorElement>("[data-section-link]"));
+    const sections = links.map(link => document.getElementById(link.dataset.sectionLink ?? ""));
+    const position = navigation.querySelector<HTMLElement>("[data-section-position]");
+    const list = navigation.querySelector("ol");
+    let active = -1;
+    let queued = false;
+    const update = () => {
+      queued = false;
+      // The reading line selects one section even when several share the viewport.
+      const readingLine = Math.min(300, window.innerHeight * .4);
+      let current = 0;
+      sections.forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= readingLine) current = index;
+      });
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = links.length - 1;
+      if (current === active) return;
+      active = current;
+      links.forEach((link, index) => {
+        const distance = Math.abs(index - current);
+        link.dataset.state = distance === 0 ? "focus" : distance === 1 ? "adjacent" : "inactive";
+        if (distance === 0) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+      if (position) position.textContent = String(current + 1).padStart(2, "0");
+      if (list && matchMedia("(max-width: 1099px)").matches) {
+        const item = links[current].parentElement;
+        if (item) list.scrollTo({ left: item.offsetLeft - list.clientWidth / 2 + item.offsetWidth / 2, behavior: "instant" });
+      }
+    };
+    const schedule = () => {
+      if (!queued) { queued = true; requestAnimationFrame(update); }
+    };
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", () => { active = -1; schedule(); });
+    window.addEventListener("hashchange", schedule);
+    window.addEventListener("load", schedule, { once: true });
+    const content = document.getElementById("main");
+    if (content) new ResizeObserver(schedule).observe(content);
+    schedule();
+  }
+</script>

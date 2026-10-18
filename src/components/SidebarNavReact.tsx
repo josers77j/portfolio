@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function SidebarNav() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('');
-  const [navItems, setNavItems] = useState([
+  const [navItems] = useState([
     { id: 'presentation', labelKey: 'navPresentation' },
     { id: 'projects', labelKey: 'navProjects' },
     { id: 'stacks', labelKey: 'navStacks' },

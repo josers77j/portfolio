@@ -4,52 +4,31 @@ interface Props {
   locale: Locale;
 }
 const t = copy[Astro.props.locale];
+const sections = [
+  { id: "experiencia", title: t.experience, entries: t.jobs },
+  { id: "comunidad", title: t.community, entries: t.communityContributions },
+];
 ---
 
-<section
-  id="experiencia"
-  class="experience-full"
-  aria-labelledby="experience-title"
->
-  <h2 id="experience-title">{t.experience}</h2>
-  <div class="experience-list">
-    {
-      t.jobs.map((job) => (
-        <details class="panel job" id={job.id}>
-          <p>
-            <strong>{t.contribution}: </strong>
-            {job.text}
-          </p>
-          <>
-            <summary>
-              <span>
-                {job.name}
-                <time>{job.date}</time>
-              </span>
-            </summary>
-            <p>
-              <strong>{t.learning}: </strong>
-              {job.learning}
-            </p>
-          </>
-        </details>
-      ))
-    }
-  </div>
-</section>
-<script>
-  const revealJob = () => {
-    const target = document.getElementById(
-      decodeURIComponent(location.hash.slice(1))
-    );
-    if (target instanceof HTMLDetailsElement) target.open = true;
-  };
-  revealJob();
-  window.addEventListener("hashchange", revealJob);
-  document.querySelectorAll<HTMLAnchorElement>("[data-job]").forEach((link) => {
-    link.addEventListener("click", () => {
-      const target = document.getElementById(link.dataset.job || "");
-      if (target instanceof HTMLDetailsElement) target.open = true;
-    });
-  });
-</script>
+{sections.map((section) => (
+  <section id={section.id} class="experience-full" aria-labelledby={`${section.id}-title`}>
+    <h2 id={`${section.id}-title`}>{section.title}</h2>
+    {section.id === "experiencia" && <p class="section-intro">{t.experienceIntro}</p>}
+    <div class="experience-list">
+      {section.entries.map((entry) => (
+        <article class="panel job experience-entry" id={entry.id}>
+          <header class="experience-heading">
+            <h3>{entry.name}</h3>
+            <span class="experience-date">{entry.date}</span>
+          </header>
+          <p class="experience-context">{entry.context}</p>
+          <p><strong>{t.contribution}: </strong>{entry.text}</p>
+          <details class="experience-technical">
+            <summary>{t.technicalDetails}</summary>
+            <p><strong>{t.technicalFocus}: </strong>{entry.learning}</p>
+          </details>
+        </article>
+      ))}
+    </div>
+  </section>
+))}

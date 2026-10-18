@@ -1,5 +1,6 @@
 ---
 import { copy, stack, type Locale } from "@/data/portfolio";
+import TechIcon from "./TechIcon.astro";
 interface Props {
   locale: Locale;
 }
@@ -21,7 +22,7 @@ const t = copy[Astro.props.locale];
             >
               {group.map((name) => (
                 <li class="chip">
-                  <span class="chip-mark" aria-hidden="true" />
+                  <TechIcon name={name} />
                   {name}
                 </li>
               ))}
