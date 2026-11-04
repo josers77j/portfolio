@@ -884,7 +884,8 @@ h1 {
   background: #f8fafc;
   color: #14243a;
 }
-.tech-icon img, .tech-icon svg {
+.tech-icon img,
+.tech-icon svg {
   display: block;
   width: 20px;
   height: 20px;
@@ -997,6 +998,44 @@ h1 {
 .featured-grid .project-links {
   margin-top: auto;
   padding-top: 16px;
+}
+.notch .art-window {
+  position: relative;
+  width: min(72%, 330px);
+  height: 112px;
+  padding: 20px 18px 12px;
+  border-radius: 18px;
+  transform: none;
+  background: var(--bg);
+  box-shadow: 0 14px 34px var(--glow-blue);
+}
+.notch .art-window::before {
+  content: "";
+  position: absolute;
+  width: 34%;
+  height: 12px;
+  top: 0;
+  left: 33%;
+  border-radius: 0 0 9px 9px;
+  background: var(--text);
+}
+.notch .art-dots {
+  justify-content: flex-end;
+}
+.notch .art-bars {
+  height: 52px;
+}
+.notch .art-bars i {
+  height: 70%;
+}
+.notch .art-bars i:nth-child(2) {
+  height: 48%;
+}
+.notch .art-bars i:nth-child(3) {
+  height: 88%;
+}
+.notch .art-bars i:nth-child(4) {
+  height: 60%;
 }
 .additional-projects {
   margin-top: 36px;

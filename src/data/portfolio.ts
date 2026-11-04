@@ -40,13 +40,16 @@ export const copy = {
     groups: ["Desarrollo", "Datos", "Infraestructura", "Calidad y seguridad"],
     projects: "Proyectos destacados",
     otherProjects: "Otros proyectos",
-    otherProjectIntro: "Aplicaciones y ejercicios para explorar tecnologías y funcionalidades específicas.",
-    experienceIntro: "Mi participación en desarrollo de aplicaciones, automatización e integración de servicios.",
+    otherProjectIntro:
+      "Aplicaciones y ejercicios para explorar tecnologías y funcionalidades específicas.",
+    experienceIntro:
+      "Mi participación en desarrollo de aplicaciones, automatización e integración de servicios.",
     technicalDetails: "Ver enfoque técnico",
     technicalFocus: "Enfoque técnico",
     projectContribution: "Implementación",
     contactClosing: "¿Buscas un desarrollador para tu equipo?",
-    contactClosingText: "Podemos conversar sobre el puesto y cómo encaja mi experiencia.",
+    contactClosingText:
+      "Podemos conversar sobre el puesto y cómo encaja mi experiencia.",
     projectIntro:
       "Dos proyectos para conocer mi trabajo en aplicaciones de gestión y arquitectura de microservicios.",
     details: "Ver detalles",
@@ -76,17 +79,20 @@ export const copy = {
     communityContributions: [
       {
         id: "ids-univo",
-        context: "Colaboración en una plataforma para la comunidad estudiantil de ingeniería.",
+        context:
+          "Colaboración en una plataforma para la comunidad estudiantil de ingeniería.",
         name: "IDS UNIVO · Aporte colaborativo",
         date: "Colaboración",
         text: "Colaboro en una plataforma de libre acceso para estudiantes de ingeniería. Apoyo la configuración del backend en NestJS y la arquitectura frontend en Angular, la integración de servicios y la nivelación técnica del equipo.",
-        learning: "Colaboración técnica con el equipo en NestJS y Angular, arquitectura de frontend e integración de servicios.",
+        learning:
+          "Colaboración técnica con el equipo en NestJS y Angular, arquitectura de frontend e integración de servicios.",
       },
     ],
     jobs: [
       {
         id: "freelance",
-        context: "Gestión de inventario y operaciones de un negocio de neumáticos.",
+        context:
+          "Gestión de inventario y operaciones de un negocio de neumáticos.",
         name: "Freelance · WheelDesk",
         date: "Sep. 2025 — Oct. 2026",
         text: "Desarrollé WheelDesk para la gestión de negocios de neumáticos con Angular, Node.js, NestJS y PostgreSQL. Implementé inventario por bodegas y zonas, compras, ventas, cotizaciones, documentos y reportes contables, junto con roles de usuario y auditoría.",
@@ -95,7 +101,8 @@ export const copy = {
       },
       {
         id: "techywe",
-        context: "Procesamiento de facturas de proveedores recibidas por correo electrónico.",
+        context:
+          "Procesamiento de facturas de proveedores recibidas por correo electrónico.",
         name: "TechyWe · Desarrollador backend",
         date: "May. 2025 — Sep. 2025",
         text: "Automaticé la recepción de facturas con Microsoft Graph Webhooks y Azure Document Intelligence. Mantuve servicios en C# / ASP.NET Core y optimicé consultas SQL Server.",
@@ -104,7 +111,8 @@ export const copy = {
       },
       {
         id: "hospital",
-        context: "Desarrollo de funcionalidades para un expediente médico electrónico.",
+        context:
+          "Desarrollo de funcionalidades para un expediente médico electrónico.",
         name: "Hospital Especialidades Nuestra Señora de La Paz",
         date: "Feb. 2024 — Abr. 2025",
         text: "Desarrollé el backend del expediente médico electrónico con RBAC y validaciones. Construí notificaciones de medicamentos mediante WebSockets y trabajé en el módulo financiero.",
@@ -113,7 +121,8 @@ export const copy = {
       },
       {
         id: "insaforp",
-        context: "Control de existencias de material educativo y alertas de inventario.",
+        context:
+          "Control de existencias de material educativo y alertas de inventario.",
         name: "Insaforp · Servicio social",
         date: "May. 2023 — Ago. 2023",
         text: "Desarrollé un sistema de gestión de material educativo con alertas de inventario para prevenir desabastecimientos.",
@@ -124,14 +133,38 @@ export const copy = {
       {
         title: "WheelDesk",
         type: "Full stack",
-        summary: "Gestión para negocios de neumáticos: inventario, compras, ventas y cotizaciones.",
+        summary:
+          "Gestión para negocios de neumáticos: inventario, compras, ventas y cotizaciones.",
         text: "Centraliza existencias por bodegas y zonas, clientes, proveedores y documentos PDF/JSON. Incluye reportes contables, auditoría y administración de usuarios con roles y sesiones. Backend con almacenamiento compatible con S3 y envío de correo mediante Resend.",
         tech: "Angular · Node.js · NestJS · PostgreSQL · Prisma · Tailwind CSS · daisyUI",
         visual: "commerce",
         status: "Sin demo pública · código disponible",
         repositories: [
-          { label: "Frontend", url: "https://github.com/josers77j/WheelDesk-frontend" },
-          { label: "Backend", url: "https://github.com/josers77j/WheelDesk-backend" },
+          {
+            label: "Frontend",
+            url: "https://github.com/josers77j/WheelDesk-frontend",
+          },
+          {
+            label: "Backend",
+            url: "https://github.com/josers77j/WheelDesk-backend",
+          },
+        ],
+      },
+      {
+        title: "Pucknotch",
+        type: "Fork personal · macOS",
+        summary:
+          "Extensión independiente de Boring Notch con Pomodoro configurable, traducción y conversiones de archivos.",
+        text: "Tomé Boring Notch como base y mantuve sus créditos y licencia GPL v3. Sobre el proyecto original añadí funciones para Pomodoro con duraciones precisas y actividad lateral configurable, traducción entre inglés y español con modelos de Apple, y herramientas de conversión de imágenes, audio y PDF.",
+        tech: "Swift · SwiftUI · macOS · EventKit · Translation",
+        visual: "notch",
+        status: "Fork independiente · GPL v3",
+        repositories: [
+          { label: "Código", url: "https://github.com/josers77j/pucknotch" },
+          {
+            label: "Proyecto base · Boring Notch",
+            url: "https://github.com/TheBoredTeam/boring.notch",
+          },
         ],
       },
       {
@@ -174,13 +207,16 @@ export const copy = {
     groups: ["Development", "Data", "Infrastructure", "Quality & security"],
     projects: "Featured projects",
     otherProjects: "Other projects",
-    otherProjectIntro: "Applications and exercises exploring specific technologies and features.",
-    experienceIntro: "My contributions to application development, automation and service integration.",
+    otherProjectIntro:
+      "Applications and exercises exploring specific technologies and features.",
+    experienceIntro:
+      "My contributions to application development, automation and service integration.",
     technicalDetails: "View technical approach",
     technicalFocus: "Technical focus",
     projectContribution: "Implementation",
     contactClosing: "Looking for a developer for your team?",
-    contactClosingText: "Let’s talk about the role and how my experience could fit.",
+    contactClosingText:
+      "Let’s talk about the role and how my experience could fit.",
     projectIntro:
       "Two projects showcasing my work on business applications and microservices architecture.",
     details: "View details",
@@ -210,11 +246,13 @@ export const copy = {
     communityContributions: [
       {
         id: "ids-univo",
-        context: "Contributing to a platform for the engineering student community.",
+        context:
+          "Contributing to a platform for the engineering student community.",
         name: "IDS UNIVO · Collaborative contribution",
         date: "Collaboration",
         text: "Contributing to an open-access platform for engineering students. Supporting NestJS backend setup, Angular frontend architecture, service integration and technical knowledge sharing.",
-        learning: "Technical collaboration with the team using NestJS and Angular, frontend architecture and service integration.",
+        learning:
+          "Technical collaboration with the team using NestJS and Angular, frontend architecture and service integration.",
       },
     ],
     jobs: [
@@ -258,14 +296,38 @@ export const copy = {
       {
         title: "WheelDesk",
         type: "Full stack",
-        summary: "Tire business management: inventory, purchasing, sales and quotations.",
+        summary:
+          "Tire business management: inventory, purchasing, sales and quotations.",
         text: "Centralizes stock by warehouse and zone, customers, suppliers and PDF/JSON documents. Includes accounting reports, auditing and user administration with roles and sessions. The backend integrates S3-compatible storage and email delivery through Resend.",
         tech: "Angular · Node.js · NestJS · PostgreSQL · Prisma · Tailwind CSS · daisyUI",
         visual: "commerce",
         status: "No public demo · source available",
         repositories: [
-          { label: "Frontend", url: "https://github.com/josers77j/WheelDesk-frontend" },
-          { label: "Backend", url: "https://github.com/josers77j/WheelDesk-backend" },
+          {
+            label: "Frontend",
+            url: "https://github.com/josers77j/WheelDesk-frontend",
+          },
+          {
+            label: "Backend",
+            url: "https://github.com/josers77j/WheelDesk-backend",
+          },
+        ],
+      },
+      {
+        title: "Pucknotch",
+        type: "Personal fork · macOS",
+        summary:
+          "Independent Boring Notch extension with configurable Pomodoro, translation and file conversion.",
+        text: "Based on Boring Notch, retaining its credits and GPL v3 license. I added a Pomodoro timer with precise durations and a configurable side activity, English–Spanish translation using Apple models, and image, audio and PDF conversion tools.",
+        tech: "Swift · SwiftUI · macOS · EventKit · Translation",
+        visual: "notch",
+        status: "Independent fork · GPL v3",
+        repositories: [
+          { label: "Source", url: "https://github.com/josers77j/pucknotch" },
+          {
+            label: "Upstream · Boring Notch",
+            url: "https://github.com/TheBoredTeam/boring.notch",
+          },
         ],
       },
       {
